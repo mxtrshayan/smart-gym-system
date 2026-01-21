@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Smart Gym</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/register.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">SmartGym</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="register.html" class="active">Register</a></li>
+            <li><a href="calories.html">Calories & Food</a></li>
+            <!-- <li><a href="admin.html">Admin Panel</a></li> -->
+        </ul>
+    </nav>
+
+    <div class="register-container">
+        <div class="form-wrapper">
+            <h2>Start Your Journey</h2>
+            <p>Fill in your details to join the Smart Gym family.</p>
+
+            <form id="registrationForm">
+                <div class="input-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" placeholder="e.g. Ali" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" placeholder="e.g. Khan" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="name@example.com" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" placeholder="0300-1234567" required>
+                </div>
+
+                <div class="row">
+                    <div class="input-group half">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" min="14" max="99" required>
+                    </div>
+
+                    <div class="input-group half">
+                        <label for="gender">Gender</label>
+                        <select id="gender" required>
+                            <option value="">Select</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="fitnessGoal">Fitness Goal</label>
+                    <select id="fitnessGoal" required>
+                        <option value="">Select your goal</option>
+                        <option value="Weight Loss">Weight Loss</option>
+                        <option value="Muscle Gain">Muscle Gain</option>
+                        <option value="Endurance">Endurance / Cardio</option>
+                        <option value="General Health">General Health</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn full-width">Proceed to Trainer Selection</button>
+            </form>
+            <div id="trainerSection"
+                style="display: none; margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
+                <h3>Select Your Trainer</h3>
+                <p>Based on your goal: <span id="userGoalDisplay" style="font-weight:bold; color:#e74c3c;"></span></p>
+
+                <div id="trainersList" class="trainers-grid">
+                </div>
+
+                <div id="bookingConfirmation" style="display: none; margin-top: 20px;">
+                    <h4>Confirm Booking</h4>
+                    <p>Trainer: <span id="selectedTrainerName"></span></p>
+                    <p>Available Time: <span id="selectedTrainerTime"></span></p>
+                    <button id="confirmBookingBtn" class="btn full-width">Confirm Booking</button>
+                </div>
+            </div>
+            <p id="formMessage"></p>
+
+        </div>
+    </div>
+
+    <script src="js/register.js"></script>
+</body>
+
+</html>

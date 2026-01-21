@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie Tracker - Smart Gym</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/calories.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">SmartGym</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="calories.html" class="active">Calories & Food</a></li>
+            <!-- <li><a href="admin.html">Admin Panel</a></li> -->
+        </ul>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <div class="calories-container">
+        
+        <div class="search-section">
+            <h1>Food Nutrition Database</h1>
+            <p>Search for Pakistani foods to check their calories (per 100g).</p>
+            
+            <div class="search-box-wrapper">
+                <input type="text" id="foodSearchInput" placeholder="Search e.g. Biryani, Samosa...">
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <table class="food-table">
+                <thead>
+                    <tr>
+                        <th>Food Name</th>
+                        <th>Calories (kcal)</th>
+                        <th>Protein (g)</th>
+                        <th>Carbs (g)</th>
+                        <th>Fat (g)</th>
+                    </tr>
+                </thead>
+                <tbody id="foodTableBody">
+                    </tbody>
+            </table>
+        </div>
+
+        <div class="pagination-container">
+            <button id="loadMoreBtn" class="btn hidden">Load More Foods</button>
+            <p id="statusMessage" class="status-msg"></p>
+        </div>
+
+        <div class="tips-container">
+            <h3>💡 Daily Health Tip</h3>
+            <div id="healthTipDisplay">Loading tip...</div>
+        </div>
+    </div>
+
+    <script src="js/calories.js"></script>
+</body>
+</html>

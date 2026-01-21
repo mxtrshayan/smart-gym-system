@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Smart Gym</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">SmartGym Admin</div>
+        <ul class="nav-links">
+            <li><a href="index.html">View Site</a></li>
+            <li><a href="#" class="active">Dashboard</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleSidebar()">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <div class="admin-container">
+        <aside class="sidebar" id="adminSidebar">
+            <ul>
+                <li onclick="showSection('usersSection')" class="active-tab"><i class="fas fa-users"></i> Users & Bookings</li>
+                <li onclick="showSection('trainersSection')"><i class="fas fa-dumbbell"></i> Manage Trainers</li>
+                <li onclick="showSection('foodsSection')"><i class="fas fa-utensils"></i> Manage Foods</li>
+                <li onclick="showSection('tipsSection')"><i class="fas fa-lightbulb"></i> Manage Tips</li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            
+            <section id="usersSection">
+                <h2>Users & Bookings Management</h2>
+                
+                <div class="action-bar">
+                    <input type="text" id="userSearch" placeholder="Search by ID, Name or Email..." onkeyup="filterUsers()">
+                    <button class="btn" onclick="openUserModal()">+ Add New User</button>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Age/Gender</th> <th>Goal</th>
+                                <th>Trainer</th>
+                                <th>Time</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody">
+                            </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="trainersSection" style="display:none;">
+                <h2>Manage Trainers</h2>
+
+                <div class="action-bar">
+                    <input type="text" id="trainerSearch" placeholder="Search by ID or Name..." onkeyup="filterTrainers()">
+                </div>
+                
+                <div class="admin-form">
+                    <h3 id="trainerFormTitle">Add New Trainer</h3>
+                    <input type="hidden" id="tId"> <div class="form-grid">
+                        <input type="text" id="tName" placeholder="Name" required>
+                        
+                        <select id="tSpecialty">
+                            <option value="">Select Specialty</option>
+                            <option value="Weight Loss">Weight Loss</option>
+                            <option value="Muscle Gain">Muscle Gain</option>
+                            <option value="Endurance">Endurance</option>
+                            <option value="General Health">General Health</option>
+                            <option value="Yoga & Flexibility">Yoga & Flexibility</option>
+                            <option value="CrossFit">CrossFit</option>
+                        </select>
+                        
+                        <input type="text" id="tExp" placeholder="Experience (e.g. 5 Years)">
+                        <input type="text" id="tAvail" placeholder="Availability (e.g. Mon-Fri 6PM-9PM)">
+                    </div>
+
+                    <div class="form-btns">
+                        <button onclick="saveTrainer()" class="btn" id="tBtn">Add Trainer</button>
+                        <button onclick="resetTrainerForm()" class="btn secondary" id="tCancel" style="display:none;">Cancel</button>
+                    </div>
+                </div>
+
+                <h3>Existing Trainers</h3>
+                <ul id="trainersList" class="item-list detailed-list"></ul>
+            </section>
+
+            <section id="foodsSection" style="display:none;">
+                <h2>Manage Food Database</h2>
+
+                <div class="action-bar">
+                    <input type="text" id="foodSearch" placeholder="Search foods..." onkeyup="filterFoods()">
+                </div>
+                
+                <div class="admin-form">
+                    <h3>Add New Food</h3>
+                    <div class="form-grid">
+                        <input type="text" id="fName" placeholder="Food Name">
+                        <input type="number" id="fCal" placeholder="Calories">
+                        <input type="number" id="fProt" placeholder="Protein (g)">
+                        <input type="number" id="fCarb" placeholder="Carbs (g)">
+                        <input type="number" id="fFat" placeholder="Fat (g)">
+                    </div>
+                    <button onclick="addFood()" class="btn">Add Food</button>
+                    <p id="foodMsg" class="status-msg"></p>
+                </div>
+
+                <h3>Existing Foods</h3>
+                <ul id="foodsList" class="item-list"></ul>
+                
+                <div style="text-align: center; margin-top: 20px;">
+                    <button id="loadMoreFoodsBtn" class="btn secondary" style="display:none;" onclick="loadMoreFoods()">Load More</button>
+                </div>
+            </section>
+
+            <section id="tipsSection" style="display:none;">
+                <h2>Manage Health Tips</h2>
+                <div class="admin-form">
+                    <div class="form-grid single-col">
+                        <input type="text" id="tipInput" placeholder="Enter new health tip...">
+                    </div>
+                    <button onclick="addTip()" class="btn">Add Tip</button>
+                </div>
+                <h3>Current Tips</h3>
+                <ul id="tipsList" class="item-list"></ul>
+            </section>
+
+        </main>
+    </div>
+
+    <div id="userModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeUserModal()">&times;</span>
+            <h3 id="userModalTitle">Add User</h3>
+            <form id="userForm">
+                <input type="hidden" id="uId"> <div class="form-grid">
+                    <div class="input-group">
+                        <label>First Name</label>
+                        <input type="text" id="uFname" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Last Name</label>
+                        <input type="text" id="uLname" required>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label>Email</label>
+                        <input type="email" id="uEmail" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Phone</label>
+                        <input type="text" id="uPhone" required>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label>Age</label>
+                        <input type="number" id="uAge" min="10" max="100" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Gender</label>
+                        <select id="uGender" required>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <hr style="margin: 15px 0; border: 0; border-top: 1px solid #eee;">
+                <h4>Assign Trainer</h4>
+
+                <div class="input-group">
+                    <label>Fitness Goal</label>
+                    <select id="uGoal" required onchange="updateTrainerDropdown()">
+                        <option value="">Select Goal</option>
+                        <option value="Weight Loss">Weight Loss</option>
+                        <option value="Muscle Gain">Muscle Gain</option>
+                        <option value="Endurance">Endurance</option>
+                        <option value="General Health">General Health</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Select Trainer</label>
+                    <select id="uTrainer" disabled onchange="updateTimeSlot()">
+                        <option value="">Select a Goal first</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Assigned Time Slot</label>
+                    <input type="text" id="uTime" readonly placeholder="Auto-assigned based on trainer" style="background: #f9f9f9;">
+                </div>
+
+                <button type="submit" class="btn full-width" style="margin-top: 15px;">Save User</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

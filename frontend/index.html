@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Gym & Wellness</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">SmartGym</div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="calories.html">Calories & Food</a></li>
+            <!-- <li><a href="admin.html">Admin Panel</a></li> -->
+        </ul>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Transform Your Body, <br> Transform Your Life</h1>
+            <p>Experience the ultimate fitness destination with state-of-the-art equipment, expert trainers, and a
+                community that motivates you.</p>
+            <div class="hero-btns">
+                <a href="register.html" class="btn">Join Now</a>
+                <a href="#facilities" class="btn secondary-outline">Explore Facilities</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="section architecture-section">
+        <h2 class="section-title">Experience Our Architecture</h2>
+        <p class="section-subtitle">A tour of our premium 1000 sq ft facility.</p>
+
+        <div class="carousel-container">
+            <div class="carousel-slide fade">
+                <img src="./Assets/gym ground floor.jpg" alt="Main Gym Floor">
+                <div class="caption">Spacious Main Floor with High Ceilings</div>
+            </div>
+            <div class="carousel-slide fade">
+                <img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77" alt="Modern Reception">
+                <div class="caption">Luxury Reception & Lounge Area</div>
+            </div>
+            <div class="carousel-slide fade">
+                <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f" alt="Weight Training Zone">
+                <div class="caption">Dedicated Heavy Weight Zone</div>
+            </div>
+            <div class="carousel-slide fade">
+                <img src="./Assets/cardio.webp" alt="Cardio Theater">
+                <div class="caption">Dedicated Area For Cardio Training</div>
+            </div>
+            <div class="carousel-slide fade">
+                <img src="./Assets/Yoga.jpg" alt="Yoga Studio">
+                <div class="caption">Yoga Studio</div>
+            </div>
+            <div class="carousel-slide fade">
+                <img src="./Assets/equipments.jpg" alt="Spa and Sauna">
+                <div class="caption">State of the arts equipments</div>
+            </div>
+
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        </div>
+
+        <div class="dots-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+            <span class="dot" onclick="currentSlide(6)"></span>
+        </div>
+    </section>
+
+    <section class="section" id="facilities">
+        <h2 class="section-title">World-Class Facilities</h2>
+        <div class="grid-container">
+            <div class="facility-card">
+                <i class="fas fa-dumbbell icon-large"></i>
+                <h3>Iron Paradise</h3>
+                <p>Hammer Strength machines and squat racks for serious lifting.</p>
+            </div>
+            <div class="facility-card">
+                <i class="fas fa-running icon-large"></i>
+                <h3>Cardio Deck</h3>
+                <p>Treadmills, stairmasters, and rowers with entertainment screens.</p>
+            </div>
+            <div class="facility-card">
+                <i class="fas fa-swimmer icon-large"></i>
+                <h3>Indoor Sprts</h3>
+                <p>Dedicated Sports Area inside gym boundary.</p>
+            </div>
+            <div class="facility-card">
+                <i class="fas fa-spa icon-large"></i>
+                <h3>Recovery Zone</h3>
+                <p>Steam room, sauna, and cold plunge for muscle recovery.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-light" id="trainers">
+        <h2 class="section-title">Meet Our Elite Coaches</h2>
+        <p class="section-subtitle">Certified experts dedicated to your goals.</p>
+
+        <div class="grid-container-3">
+            <div class="trainer-card-home">
+                <img src="./Assets/t3.jpg" alt="Trainer">
+                <div class="t-info">
+                    <h3>Shayan Shahid</h3>
+                    <span>Muscle Gain Specialist</span>
+                    <p>5 Years Experience</p>
+                </div>
+            </div>
+            <div class="trainer-card-home">
+                <img src="./Assets/naik1.png" alt="Trainer">
+                <div class="t-info">
+                    <h3>Abu Baker</h3>
+                    <span>Weight Loose Trainer</span>
+                    <p>6 Years Experience</p>
+                </div>
+            </div>
+            <div class="trainer-card-home">
+
+                <img src="./Assets/t2.jpg" alt="">
+                <div class="t-info">
+                    <h3>Sohaib Raheem</h3>
+                    <span>Cardio & Endurance</span>
+                    <p>10 Years Experience</p>
+                </div>
+            </div>
+            <div class="trainer-card-home">
+                <img src="./Assets/t5.jpg" alt="Trainer">
+                <div class="t-info">
+                    <h3>Dr. Laiba</h3>
+                    <span>Cardio and yoga Specialist</span>
+                    <p>3 Years Experience</p>
+                </div>
+            </div>
+            <div class="trainer-card-home">
+                <img src="./Assets/t6.png" alt="Trainer">
+                <div class="t-info">
+                    <h3>Amna</h3>
+                    <span>General Fittness</span>
+                    <p>3 Years Experience</p>
+                </div>
+            </div>
+            <div class="trainer-card-home">
+                <img src="./Assets/t4.jpg" alt="">
+                <div class="t-info">
+                    <h3>Rukhsar Malik</h3>
+                    <span>Muscle Gain Specialits</span>
+                    <p>6 Years Experience</p>
+                </div>
+            </div>
+        </div>
+        <div style="text-align:center; margin-top:30px;">
+            <a href="register.html" class="btn">Train with Them</a>
+        </div>
+    </section>
+
+    <!-- <section class="section">
+        <h2 class="section-title">Membership Plans</h2>
+        <div class="pricing-table">
+            <div class="plan">
+                <h3>Standard</h3>
+                <div class="price">Rs 3,000<span>/mo</span></div>
+                <ul>
+                    <li>Gym Access (Off-Peak)</li>
+                    <li>Locker Access</li>
+                    <li>Free WiFi</li>
+                </ul>
+                <a href="register.html" class="btn secondary">Choose Plan</a>
+            </div>
+            <div class="plan featured">
+                <h3>Premium</h3>
+                <div class="price">Rs 5,000<span>/mo</span></div>
+                <ul>
+                    <li>24/7 Gym Access</li>
+                    <li>All Group Classes</li>
+                    <li>Sauna Access</li>
+                    <li>1 Personal Training Session</li>
+                </ul>
+                <a href="register.html" class="btn">Choose Plan</a>
+            </div>
+            <div class="plan">
+                <h3>Elite</h3>
+                <div class="price">Rs 8,000<span>/mo</span></div>
+                <ul>
+                    <li>All Premium Features</li>
+                    <li>Unlimited Sauna & Pool</li>
+                    <li>Weekly Nutrition Plan</li>
+                    <li>Priority Trainer Booking</li>
+                </ul>
+                <a href="register.html" class="btn secondary">Choose Plan</a>
+            </div>
+        </div> -->
+    </section>
+
+    <section class="section bg-dark text-white">
+        <h2 class="section-title" style="color:white;">Member Success Stories</h2>
+        <div class="grid-container">
+            <div class="testimonial">
+                <p>"SmartGym changed my life. I lost 15kg in 3 months thanks to Ali's training!"</p>
+                <h4>- Usman Z.</h4>
+            </div>
+            <div class="testimonial">
+                <p>"The facilities are spotless and the equipment is top notch. Best gym in the city."</p>
+                <h4>- Fatima R.</h4>
+            </div>
+            <div class="testimonial">
+                <p>"I love the 24/7 access. It fits perfectly with my busy work schedule."</p>
+                <h4>- Ahmed K.</h4>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>SmartGym</h3>
+                <p>Building better bodies since 2015.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="register.html">Register</a>
+                <a href="calories.html">Nutrition</a>
+            </div>
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <p>I I chandigarh road karachi</p>
+                <p>03162609779</p>
+                <p>support@smartgym.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; Created by Mr. Shayan</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
